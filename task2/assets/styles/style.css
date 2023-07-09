@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+    /* Все элементы на странице будут иметь ту ширину, которую указали (вклбчая в себя рамки, паддинги и внутренние отступы  */
+}
+
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+    ;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1140px;
+    /* После добавления Media- изменили размер с 1110 на 1140 */
+    margin-left: auto;
+    margin-right: auto;
+    /* Выравниваем контейнер по центру */
+    padding-left: 15px;
+    padding-right: 15px;
+    /* После добавления Media- добавили паддинги */
+}
+
+.none {
+    display: none !important;
+    /* !important - делает свойства приоритетными не зависимо от положения в строке CSS */
+}
+
+/* Header */
+
+.header {
+    position: relative;
+    /* делает родителем для элементов, которые лежат внутри него и имеют абсолютное позиционирование . В данном случае для .header-arrow {position: absolute;}*/
+    display: flex;
+    flex-direction: column;
+    /*Выстраиваем flex-элементы в колонку ("h1" и "p"), основная ось - Y*/
+    justify-content: center;
+    /*Выравниваем по основной оси */
+    align-items: center;
+    /*Выравниваем по поперечной оси  */
+
+    width: 100%;
+    height: 100vh;
+    background-color: #787A86;
+    background-image: url("./../images/header/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header-title {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 130%;
+    /* 1.3*56=72.8 Высота строки */
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.header-subtitle {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    /* высота строки */
+    letter-spacing: 3.2px;
+    /* Расстояние между буквами */
+    text-transform: uppercase;
+    /* Делает шрифт заглавными буквами */
+    margin: 0;
+}
+
+.header-arrow {
+    width: 48px;
+    height: 48px;
+    /* background-color: crimson; */
+    position: absolute;
+    /* Размещаем иконку поверх окна родителя */
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50% 0);
+    /* Смещение по X и по Y. Чтобы не использовать margin-left: -24px (половина его ширины), потому что смещение будет зависеть от ширины блока и при изменении размера, нужно будет менять значание в ручную) */
+}
+
+/* Portfolio */
+
+.portfolio {
+    /* background-color: rgb(237, 255, 103); */
+    padding-top: 80px;
+    padding-bottom: 115px;
+}
+
+.portfolio-header {
+    color: #000;
+    text-align: center;
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 130%;
+    margin: 0;
+    margin-bottom: 70px;
+}
+
+.porfolio-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* Перенос на следующую строчку */
+    justify-content: space-between;
+    /* Выравнивает элементы по краям контейнера по оси X */
+}
+
+.card {
+    /* border: 5px solid blue; */
+    margin-bottom: 30px;
+    background-color: #FFF;
+    max-width: 540px;
+    padding: 20px;
+    /* p20+Tab */
+    box-sizing: border-box;
+    /* Размер блока 540px- будет соответсвовать 540px, вклбчая рамку, паддинги и внутренние отступы */
+    background: #FFF;
+    box-shadow: 0px 10px 40px 0px rgba(126, 155, 189, 0.35);
+    /* Тень для карточек */
+}
+
+/* Выбираем две последние карточки для исключения padding в них (псевдо-селектор) */
+
+/* Последняя карточка */
+.card:last-child {
+    /* background-color: chocolate; */
+    margin-bottom: 0;
+}
+
+/* Предпоследняя карточка. nth-last-child - выбирает элемент по номеру с конца */
+.card:nth-last-child(2) {
+    /* background-color: chocolate; */
+    margin-bottom: 0;
+}
+
+.card-img {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    margin: 0;
+    /* Заголовки h1-h6 имеют отступы, обнуляем эти значения, чтобы контролировать расстояние самрстоятельно (m0+Tab) */
+    margin-bottom: 13px;
+    /* mb13+Tab */
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+/* Что бы не писать класс тегу р. Мы выбираем все элементы р, которые лежат в слассе card */
+.card p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+    margin: 0;
+}
+
+/* // Portfolio */
+
+/* footer */
+
+.footer {
+    background: #1E4776;
+    padding-top: 45px;
+    padding-bottom: 130px;
+    /* Даже без контента уже видно футер на основе паддингов */
+    color: #FFF;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col {
+    max-width: 350px;
+    flex-grow: 1;
+    /* Конетент не занимал все 350px, для того чтобы он растянулся и был на 350- пишем 1 */
+}
+
+.footer-copyringht {
+    color: #7E9EC9;
+    line-height: 1.3;
+}
+
+.footer-copyringht-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-copyringht p {
+    font-size: 16pz;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.footer-icons p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.footer-ikons-row {
+    display: flex;
+    align-items: center;
+    /* Выравнивание по поперечной оси- по вертикале */
+}
+
+/* Выбираем все теги (*), которые находятся на певрвом уровне вложенности (> - ссылки) внутри класса footer-ikons-row. + выбирает элемент у которого есть сосед слева */
+.footer-ikons-row>*+* {
+    /* background-color: deeppink; */
+    margin-left: 30px;
+}
+
+.footer-button {
+    display: inline-block;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 44px;
+
+    border-radius: 50px;
+    border: 3px solid #FFF;
+
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.footer-button:hover {
+    background-color: white;
+    color: #1E4776;
+}
+
+.footer-contacts p {
+    color: #7E9EC9;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    margin: 15px 0;
+}
